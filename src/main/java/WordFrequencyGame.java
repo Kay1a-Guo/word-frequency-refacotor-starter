@@ -27,11 +27,7 @@ public class WordFrequencyGame {
 
                 inputList = sortWord(list);
 
-                StringJoiner joiner = new StringJoiner("\n");
-                for (Input w : inputList) {
-                    String s = w.getValue() + " " +w.getWordCount();
-                    joiner.add(s);
-                }
+                StringJoiner joiner = spliceWord(inputList);
                 return joiner.toString();
             } catch (Exception e) {
 
@@ -39,6 +35,15 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private StringJoiner spliceWord(List<Input> inputList) {
+        StringJoiner joiner = new StringJoiner("\n");
+        for (Input w : inputList) {
+            String s = w.getValue() + " " +w.getWordCount();
+            joiner.add(s);
+        }
+        return joiner;
     }
 
     private List<Input> sortWord(List<Input> list) {
